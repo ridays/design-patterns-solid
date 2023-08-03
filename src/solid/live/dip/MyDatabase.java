@@ -10,12 +10,12 @@ import java.util.Map;
  * Time: 4:47:27 PM
  * To change this template use File | Settings | File Templates.
  */
-public class MyDatabase {
+public class MyDatabase implements Writer {
     private static Map<Integer, String> data = new Hashtable<Integer, String>();
     private static int count = 0;
 
-    public int write(String inputString) {
+    // Modified the return type of this.
+    public void write(String inputString) {
         data.put(++count, inputString);
-        return count;
     }
 }

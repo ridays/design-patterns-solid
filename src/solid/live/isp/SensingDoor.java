@@ -1,7 +1,5 @@
 package solid.live.isp;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 /**
  * Created by IntelliJ IDEA.
  * User: goyalamit
@@ -9,37 +7,33 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
  * Time: 4:21:11 PM
  * To change this template use File | Settings | File Templates.
  */
-public class SensingDoor implements Door{
-    private boolean isLocked;
-    private boolean isOpened;
+public class SensingDoor implements Door, SensorClient {
+	private boolean isLocked;
+	private boolean isOpened;
 
-    public SensingDoor(Sensor sensor) {
-    sensor.register(this);
-    }
+	public SensingDoor(Sensor sensor) {
+		sensor.register(this);
+	}
 
-    public void lock() {
-        this.isLocked = true;
-    }
+	public void lock() {
+		this.isLocked = true;
+	}
 
-    public void unlock() {
-        this.isLocked = false;
-    }
+	public void unlock() {
+		this.isLocked = false;
+	}
 
-    public void open() {
-        if (!isLocked)
-            this.isOpened = true;
-    }
+	public void open() {
+		if (!isLocked)
+			this.isOpened = true;
+	}
 
-    public void close() {
-        this.isOpened = false;
-    }
+	public void close() {
+		this.isOpened = false;
+	}
 
-    public void timeOutCallback() {
-      throw new NotImplementedException();
-    }
-
-    public void proximityCallback() {
-        this.isOpened = true;
-    }
+	public void proximityCallback() {
+		this.isOpened = true;
+	}
 
 }

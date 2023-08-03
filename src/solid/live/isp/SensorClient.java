@@ -8,5 +8,5 @@ package solid.live.isp;
  * To change this template use File | Settings | File Templates.
  */
 public interface SensorClient {
-    void proximityCallback();
+	void proximityCallback();
 }
